@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: test-dep
+  namespace: ekyc-core-system
+  labels:
+    k8s-app: test-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: test-dep
+  template:
+    metadata:
+      name: test-dep
+      labels:
+        k8s-app: test-dep
+    spec:
+      containers:
+        - name: test-dep
+          image: 'registry.com:5000/security_api:tagVersion'
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: regcred01
