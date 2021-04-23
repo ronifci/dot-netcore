@@ -36,8 +36,8 @@ pipeline {
 
         stage('Deploy to k8s'){
             steps{
-                sh "chmod +x changeTagsecurity.sh"
-                sh "./changeTagsecurity.sh ${DOCKER_TAG}"
+                sh "chmod +x changeTag.sh"
+                sh "./changeTag.sh ${DOCKER_TAG}"
                 sh " kubectl apply -f test-dep.yaml-tag.yaml"
             }
         }
