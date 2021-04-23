@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: test-dep
-          image: 'registry.com:5000/security_api:tagVersion'
+          image: 'registry.com:5000/test:tagVersion'
           imagePullPolicy: IfNotPresent
       restartPolicy: Always
       imagePullSecrets:
